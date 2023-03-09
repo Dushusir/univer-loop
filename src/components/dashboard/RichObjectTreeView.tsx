@@ -1,19 +1,18 @@
 import * as React from 'react';
+import TreeItem from '@mui/lab/TreeItem';
 import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import TreeItem from '@mui/lab/TreeItem';
-import VariantAvatar from './VariantAvatar';
 
 interface RenderTree {
-  id: string;
   name: string;
+  id: string;
   children?: readonly RenderTree[];
 }
 
 const data: RenderTree = {
-  id: 'root',
   name: 'Parent',
+  id: 'root',
   children: [
     {
       id: '1',
@@ -47,9 +46,7 @@ export default function RichObjectTreeView() {
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpanded={['root']}
       defaultExpandIcon={<ChevronRightIcon />}
-      sx={{ height: 110, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
-    > 
-    
+      sx={{ height: 110, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}>
       {renderTree(data)}
     </TreeView>
   );

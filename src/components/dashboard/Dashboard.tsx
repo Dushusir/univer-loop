@@ -26,6 +26,8 @@ import Orders from './Orders';
 import RichObjectTreeView from './RichObjectTreeView';
 import {Item} from './Item'
 import GroupAvatars from './GroupAvatars';
+import {Sider} from "../sider/Sider";
+import {SiderData} from '../sider/Data';
 
 function Copyright(props: any) {
   return (
@@ -40,7 +42,7 @@ function Copyright(props: any) {
   );
 }
 
-const drawerWidth: number = 240;
+const drawerWidth: number = 300;
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -127,18 +129,18 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-               <Stack 
+               <Stack
                direction="row"
               justifyContent="flex-start"
               alignItems="center"
-              spacing={2}> 
+              spacing={2}>
 
               <Avatar style={{display:'inline-block'}} alt="Remy Sharp" src="../../src/assets/img/dave-128.jpg" />
               <h4>Project Overview</h4>
-             
-              
+
+
              </Stack>
-            
+
             </Typography>
             <IconButton color="inherit">
             <Item style={{backgroundColor:'#814ffd',borderRadius:'20px',padding:'4px 12px 4px 12px',marginRight:'20px',fontSize:20,color:'white'}}>Live</Item>
@@ -165,7 +167,7 @@ function DashboardContent() {
           <Divider />
           <List component="nav">
             {mainListItems}
-            <RichObjectTreeView />
+            <Sider group={SiderData}/>
             <Divider sx={{ my: 1 }} />
             {secondaryListItems}
           </List>
