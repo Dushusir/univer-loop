@@ -14,6 +14,7 @@ import PageviewIcon from '@mui/icons-material/Pageview';
 
 export interface SiderProps {
     id: string,
+    onClick: (props: SiderProps) => void,
     text: string,
     icon: string,
     type: 'node' | 'group',

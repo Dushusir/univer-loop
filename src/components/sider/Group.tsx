@@ -6,7 +6,9 @@ import GroupAvatars from "../dashboard/GroupAvatars";
 export class Group extends React.Component<{ node: SiderProps }> {
     render() {
         return (
-            <TreeItem nodeId={this.props.node.id} label={
+            <TreeItem nodeId={this.props.node.id} onClick={() => {
+                this.props.node.onClick(this.props.node)
+            }} label={
                 <>
                     <span className={"sider-group-icon"}>
                         <RenderIcon type={this.props.node.icon} />

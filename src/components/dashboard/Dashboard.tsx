@@ -23,11 +23,13 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
-import RichObjectTreeView from './RichObjectTreeView';
 import {Item} from './Item'
 import GroupAvatars from './GroupAvatars';
-import {Sider} from "../sider/Sider";
-import {SiderData} from '../sider/Data';
+import {Sider, SiderProps} from "../sider/Sider";
+import {Sheet1} from "../../demo/Sheet1";
+import {Sheet2} from "../../demo/Sheet2";
+import {Sheet3} from "../../demo/Sheet3";
+import {Sheet4} from "../../demo/Sheet4";
 
 function Copyright(props: any) {
   return (
@@ -42,7 +44,7 @@ function Copyright(props: any) {
   );
 }
 
-const drawerWidth: number = 300;
+const drawerWidth: number = 317;
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -95,11 +97,97 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const mdTheme = createTheme();
 
 function DashboardContent() {
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
+  let id = 1;
+  let [type, setType] = React.useState('dome1');
+  let [open, setOpen] = React.useState(true);
+  let toggleDrawer = () => {
     setOpen(!open);
   };
-
+  let siderProps: SiderProps[] = [
+    {
+      text: 'Marketing',
+      id: 'root',
+      type: 'group',
+      icon: 'icon1',
+      onClick: () => {},
+      children: [
+        {
+          id: `${++id}`,
+          text: 'Project Overview',
+          type: 'group',
+          onClick: () => {},
+          icon: 'icon2',
+          children: [
+            {
+              type: 'node',
+              id: `${++id}`,
+              text: 'Marketing Guidelines for V...',
+              onClick: () => {
+                setType('dome1');
+              },
+              icon: 'icon4',
+              children: [],
+            },
+            {
+              type: 'node',
+              id: `${++id}`,
+              text: 'Weekly Brainstorm Meeting',
+              onClick: () => {
+                setType('dome2');
+              },
+              icon: 'icon5',
+              children: [],
+            },
+            {
+              type: 'node',
+              id: `${++id}`,
+              text: 'Creative Brief',
+              onClick: () => {
+                setType('dome3');
+              },
+              icon: 'icon6',
+              children: [],
+            },
+            {
+              type: 'node',
+              id: `${++id}`,
+              text: 'Retrospective Retreat',
+              onClick: () => {
+                setType('dome4');
+              },
+              icon: 'icon6',
+              children: [],
+            },
+          ],
+        },
+        {
+          type: 'group',
+          id: `${++id}`,
+          text: 'Designs',
+          icon: 'icon3',
+          onClick: () => {},
+          children: [
+            {
+              onClick: () => {},
+              type: 'node',
+              id: `${++id}`,
+              text: 'Mood Board',
+              icon: 'icon5',
+              children: [],
+            },
+            {
+              onClick: () => {},
+              type: 'node',
+              id: `${++id}`,
+              icon: 'icon3',
+              text: 'Alpine ski house sizzle Re...',
+              children: [],
+            },
+          ],
+        },
+      ],
+    }
+  ];
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
@@ -152,14 +240,12 @@ function DashboardContent() {
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
-          <Toolbar
-            sx={{
+          <Toolbar sx={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'flex-end',
               px: [1],
-            }}
-          >
+            }}>
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
@@ -167,25 +253,20 @@ function DashboardContent() {
           <Divider />
           <List component="nav">
             {mainListItems}
-            <Sider group={SiderData}/>
+            <Sider group={siderProps}/>
             <Divider sx={{ my: 1 }} />
             {secondaryListItems}
           </List>
         </Drawer>
-        <Box
-          component="main"
-          sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
+        <Box component="main" sx={{
+            backgroundColor: (theme) => theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[900],
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',
-          }}
-        >
+          }}>
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          {/*图表*/}
+          <Container style={{display: 'none'}} maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
@@ -222,6 +303,14 @@ function DashboardContent() {
             </Grid>
             <Copyright sx={{ pt: 4 }} />
           </Container>
+          {/*sheet1*/}
+          <Sheet1 style={{display: `${type==='dome1' ? 'block' : 'none'}`}}/>
+          {/*sheet2*/}
+          <Sheet2 style={{display: `${type==='dome2' ? 'block' : 'none'}`}}/>
+          {/*sheet3*/}
+          <Sheet3 style={{display: `${type==='dome3' ? 'block' : 'none'}`}}/>
+          {/*sheet4*/}
+          <Sheet4 style={{display: `${type==='dome4' ? 'block' : 'none'}`}}/>
         </Box>
       </Box>
     </ThemeProvider>
