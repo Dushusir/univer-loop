@@ -11,6 +11,6 @@ export class Sheet5 extends React.Component<{style: {}}> {
     }
 
     render() {
-        return <iframe ref={this.iframeRef} style={{width: '100%', height: '90%'}} />;
+        return <iframe ref={this.iframeRef} style={{...{width: '100%', height: '90%'}, ...this.props.style}} />;
     }
 }

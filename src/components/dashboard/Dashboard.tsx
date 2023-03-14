@@ -34,6 +34,7 @@ import {Sheet5} from "../../demo/Sheet5";
 // import Logo from '../../assets/img/Picture1.png'
 import {Doc} from "../../demo/Doc";
 import {Slide} from "../../demo/Slide";
+import {Affine} from "../../demo/Affine";
 
 function Copyright(props: any) {
     return (
@@ -205,6 +206,16 @@ function DashboardContent() {
                             icon: 'icon6',
                             children: [],
                         },
+                        {
+                            type: 'node',
+                            id: `${++id}`,
+                            text: 'Affine',
+                            onClick: () => {
+                                setType('affine');
+                            },
+                            icon: 'icon6',
+                            children: [],
+                        }
                     ],
                 },
             ],
@@ -347,8 +358,10 @@ function DashboardContent() {
                     <Sheet4 style={{display: `${type === 'dome4' ? 'block' : 'none'}`}}/>
                     {/*doc*/}
                     <Doc style={{display: `${type === 'doc' ? 'block' : 'none'}`}}/>
-                    {/*doc*/}
+                    {/*slide*/}
                     <Slide style={{display: `${type === 'slide' ? 'block' : 'none'}`}}/>
+                    {/*affine*/}
+                    <Affine style={{display: `${type === 'affine' ? 'block' : 'none'}`}}></Affine>
                     {/*sheet5*/}
                     <Sheet5 style={{display: `${type === 'dome5' ? 'block' : 'none'}`}}/>
                 </Box>
