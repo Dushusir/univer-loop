@@ -165,10 +165,15 @@ export function initDocNew(setting) {
             }
         },
     }
-    univerDocCustom({
+
+    const univerdoc = univerDocCustom({
         coreConfig,
         uiDocsConfig
     })
+
+    window.addEventListener('resize', () => {
+        univerdoc._context.getPluginManager().getRequirePluginByName('document').calculatePagePosition();
+    });
 }
 
 export function initSlideNew(setting) {
