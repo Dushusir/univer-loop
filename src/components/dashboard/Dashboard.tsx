@@ -31,7 +31,7 @@ import {Sheet2} from "../../demo/Sheet2";
 import {Sheet3} from "../../demo/Sheet3";
 import {Sheet4} from "../../demo/Sheet4";
 import {Sheet5} from "../../demo/Sheet5";
-import Logo from '../../assets/img/Picture1.png'
+// import Logo from '../../assets/img/Picture1.png'
 import {Doc} from "../../demo/Doc";
 import {Slide} from "../../demo/Slide";
 
@@ -246,7 +246,7 @@ function DashboardContent() {
                                 spacing={2}>
 
                                 <Avatar style={{display: 'inline-block'}} alt="Remy Sharp"
-                                        src="../../src/assets/img/dave-128.jpg"/>
+                                        src="./assets/img/dave-128.jpg"/>
                                 <h4>Project Overview</h4>
 
 
@@ -276,7 +276,7 @@ function DashboardContent() {
                         justifyContent: 'flex-end',
                         px: [1],
                     }}>
-                        <img src={Logo} style={{width: '200px', marginRight: 'auto'}}/>
+                        <img src='./assets/img/Picture1.png' style={{width: '200px', marginRight: 'auto'}}/>
                         <IconButton onClick={toggleDrawer}>
                             <ChevronLeftIcon/>
                         </IconButton>
