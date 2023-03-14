@@ -32,7 +32,6 @@ export class Doc extends React.Component<{style: {}}> {
                 container && container.addEventListener('mousemove', (e) => {
                     e.stopImmediatePropagation()
                 });
-                debugger
                 initUniverNew(demo, {
                     toolbar: false,
                     refs: container

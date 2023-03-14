@@ -33,6 +33,7 @@ import {Sheet4} from "../../demo/Sheet4";
 import {Sheet5} from "../../demo/Sheet5";
 import Logo from '../../assets/img/Picture1.png'
 import {Doc} from "../../demo/Doc";
+import {Slide} from "../../demo/Slide";
 
 function Copyright(props: any) {
     return (
@@ -194,6 +195,16 @@ function DashboardContent() {
                             text: 'Alpine ski house sizzle Re...',
                             children: [],
                         },
+                        {
+                            type: 'node',
+                            id: `${++id}`,
+                            text: 'Slide',
+                            onClick: () => {
+                                setType('slide');
+                            },
+                            icon: 'icon6',
+                            children: [],
+                        },
                     ],
                 },
             ],
@@ -333,6 +344,8 @@ function DashboardContent() {
                     <Sheet4 style={{display: `${type === 'dome4' ? 'block' : 'none'}`}}/>
                     {/*doc*/}
                     <Doc style={{display: `${type === 'doc' ? 'block' : 'none'}`}}/>
+                    {/*doc*/}
+                    <Slide style={{display: `${type === 'slide' ? 'block' : 'none'}`}}/>
                     {/*sheet5*/}
                     <Sheet5 style={{display: `${type === 'dome5' ? 'block' : 'none'}`}}/>
                 </Box>

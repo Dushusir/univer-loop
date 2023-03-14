@@ -191,10 +191,18 @@ export function initSlideNew(setting) {
             }
         },
     }
-    univerSlideCustom({
+   let universlide = univerSlideCustom({
         coreConfig,
         uiSlidesConfig
     })
+
+    window.addEventListener('resize', () => {
+        universlide._context
+            .getPluginManager()
+            .getPluginByName('slide')
+            .getCanvasView()
+            .scrollToCenter()
+    });
 }
 
 export function initUniverNew(content, setting) {
