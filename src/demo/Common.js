@@ -172,7 +172,10 @@ export function initDocNew(setting) {
     })
 
     window.addEventListener('resize', () => {
-        univerdoc._context.getPluginManager().getRequirePluginByName('document').calculatePagePosition();
+        setTimeout(() => {
+            console.log(0)
+            univerdoc._context.getPluginManager().getRequirePluginByName('document').calculatePagePosition();
+        }, 2000);
     });
 }
 

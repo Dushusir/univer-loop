@@ -212,7 +212,7 @@ function DashboardContent() {
     ];
     return (
         <ThemeProvider theme={mdTheme}>
-            <Box sx={{display: 'flex'}}>
+            <Box sx={{display: 'flex'}} style={{height: '100%'}}>
                 <CssBaseline/>
                 <AppBar position="absolute" open={open}>
                     <Toolbar
@@ -269,30 +269,33 @@ function DashboardContent() {
                         </IconButton>
                     </Toolbar>
                 </AppBar>
-                <Drawer variant="permanent" open={open}>
-                    <Toolbar sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'flex-end',
-                        px: [1],
-                    }}>
-                        <img src='./assets/img/Picture1.png' style={{width: '200px', marginRight: 'auto'}}/>
-                        <IconButton onClick={toggleDrawer}>
-                            <ChevronLeftIcon/>
-                        </IconButton>
-                    </Toolbar>
-                    <Divider/>
-                    <List component="nav">
-                        {mainListItems}
-                        <Sider group={siderProps}/>
-                        <Divider sx={{my: 1}}/>
-                        {secondaryListItems}
-                    </List>
-                </Drawer>
+                <div style={{height: '100%', overflow: 'auto'}}>
+                    <Drawer variant="permanent" open={open}>
+                        <Toolbar sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'flex-end',
+                            px: [1],
+                        }}>
+                            <img src='./assets/img/Picture1.png' style={{width: '200px', marginRight: 'auto'}}/>
+                            <IconButton onClick={toggleDrawer}>
+                                <ChevronLeftIcon/>
+                            </IconButton>
+                        </Toolbar>
+                        <Divider/>
+                        <List component="nav">
+                            {mainListItems}
+                            <Sider group={siderProps}/>
+                            <Divider sx={{my: 1}}/>
+                            {secondaryListItems}
+                        </List>
+                    </Drawer>
+                </div>
                 <Box component="main" sx={{
                     backgroundColor: (theme) => theme.palette.mode === 'light' ? theme.palette.grey[100] : theme.palette.grey[900],
                     flexGrow: 1,
                     height: '100vh',
+                    marginTop: 1,
                     overflow: 'hidden',
                 }}>
                     <Toolbar/>
