@@ -51,6 +51,7 @@ export class Sider extends React.Component<{ group: SiderProps[] }> {
     render() {
         return (
             <TreeView
+                defaultExpanded={['root','0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14']}
                 defaultCollapseIcon={<ExpandMoreIcon />}
                 defaultExpandIcon={<ChevronRightIcon />}
                 className={"slide-root"}>
@@ -64,7 +65,8 @@ export class Sider extends React.Component<{ group: SiderProps[] }> {
                         }
                     }
                 })}
-            </TreeView>
+            </TreeView
+>
         )
     }
 }

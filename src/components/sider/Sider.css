@@ -1,5 +1,6 @@
 ul.slide-root {
     height: auto;
+    overflow: hidden;
 }
 
 li.sider-group > div > div > span {
@@ -14,22 +15,30 @@ li.sider-group > div > div > span.sider-group-icon {
 }
 
 li.sider-group > div > div > span.sider-group-title {
-    width: 100px;
+    width: 100%;
     overflow: hidden;
     display: inline-block;
 }
 
 li.sider-group > div > div > span.sider-group-users {
     display: inline-block;
-    transform: scale(0.6);
+    position: absolute;
+    right: 0;
 }
 
 li.sider-group > div > div > span.sider-group-users > div {
-
+    height: 100%;
 }
 
 li.sider-group > div > div > span.sider-group-users > div > div {
-    margin-left: -23px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+}
+
+li.sider-group > div > div > span.sider-group-users > div > div > img {
+    width: 100%;
+    height: 100%;
 }
 
 li.sider-item {

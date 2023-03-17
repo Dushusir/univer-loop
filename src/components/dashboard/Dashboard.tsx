@@ -34,7 +34,7 @@ import {Sheet5} from "../../demo/Sheet5";
 // import Logo from '../../assets/img/Picture1.png'
 import {Doc} from "../../demo/Doc";
 import {Slide} from "../../demo/Slide";
-import {Affine} from "../../demo/Affine";
+import {Page} from "../../demo/Page";
 
 function Copyright(props: any) {
     return (
@@ -103,8 +103,9 @@ const mdTheme = createTheme();
 
 function DashboardContent() {
     let id = 1;
-    let [type, setType] = React.useState('dome1');
+    let [type, setType] = React.useState('page');
     let [open, setOpen] = React.useState(true);
+    let [title, setTitle] = React.useState('Project Overview');
     let toggleDrawer = () => {
         setOpen(!open);
     };
@@ -128,9 +129,21 @@ function DashboardContent() {
                         {
                             type: 'node',
                             id: `${++id}`,
+                            text: 'Page',
+                            onClick: () => {
+                                setType('page');
+                                setTitle('Page');
+                            },
+                            icon: 'icon6',
+                            children: [],
+                        },
+                        {
+                            type: 'node',
+                            id: `${++id}`,
                             text: 'Marketing Guidelines for V...',
                             onClick: () => {
                                 setType('dome1');
+                                setTitle('Marketing Guidelines for V...');
                             },
                             icon: 'icon4',
                             children: [],
@@ -141,6 +154,7 @@ function DashboardContent() {
                             text: 'Weekly Brainstorm Meeting',
                             onClick: () => {
                                 setType('dome2');
+                                setTitle('Weekly Brainstorm Meeting');
                             },
                             icon: 'icon5',
                             children: [],
@@ -151,6 +165,7 @@ function DashboardContent() {
                             text: 'Creative Brief',
                             onClick: () => {
                                 setType('dome3');
+                                setTitle('Creative Brief');
                             },
                             icon: 'icon6',
                             children: [],
@@ -161,6 +176,7 @@ function DashboardContent() {
                             text: 'Retrospective Retreat',
                             onClick: () => {
                                 setType('dome4');
+                                setTitle('Retrospective Retreat');
                             },
                             icon: 'icon6',
                             children: [],
@@ -178,6 +194,7 @@ function DashboardContent() {
                         {
                             onClick: () => {
                                 setType('dome5');
+                                setTitle('Mood Board');
                             },
                             type: 'node',
                             id: `${++id}`,
@@ -187,8 +204,8 @@ function DashboardContent() {
                         },
                         {
                             onClick: () => {
-                                console.log('doc')
                                 setType('doc');
+                                setTitle('Alpine ski house sizzle Re...');
                             },
                             type: 'node',
                             id: `${++id}`,
@@ -202,16 +219,7 @@ function DashboardContent() {
                             text: 'Slide',
                             onClick: () => {
                                 setType('slide');
-                            },
-                            icon: 'icon6',
-                            children: [],
-                        },
-                        {
-                            type: 'node',
-                            id: `${++id}`,
-                            text: 'Affine',
-                            onClick: () => {
-                                setType('affine');
+                                setTitle('Slide');
                             },
                             icon: 'icon6',
                             children: [],
@@ -258,7 +266,7 @@ function DashboardContent() {
 
                                 <Avatar style={{display: 'inline-block'}} alt="Remy Sharp"
                                         src="./assets/img/dave-128.jpg"/>
-                                <h4>Project Overview</h4>
+                                <h4>{title}</h4>
 
 
                             </Stack>
@@ -295,10 +303,12 @@ function DashboardContent() {
                         </Toolbar>
                         <Divider/>
                         <List component="nav">
-                            {mainListItems}
+                            {/*{mainListItems}*/}
                             <Sider group={siderProps}/>
+                            {/*
                             <Divider sx={{my: 1}}/>
                             {secondaryListItems}
+                            */}
                         </List>
                     </Drawer>
                 </div>
@@ -311,7 +321,7 @@ function DashboardContent() {
                 }}>
                     <Toolbar/>
                     {/*图表*/}
-                    <Container style={{display: 'none'}} maxWidth="lg" sx={{mt: 4, mb: 4}}>
+                    <Container style={{display: `${type === 'bashboard' ? 'block' : 'none'}`}} maxWidth="lg" sx={{mt: 4, mb: 4}}>
                         <Grid container spacing={3}>
                             {/* Chart */}
                             <Grid item xs={12} md={8} lg={9}>
@@ -361,7 +371,7 @@ function DashboardContent() {
                     {/*slide*/}
                     <Slide style={{display: `${type === 'slide' ? 'block' : 'none'}`}}/>
                     {/*affine*/}
-                    <Affine style={{display: `${type === 'affine' ? 'block' : 'none'}`}}></Affine>
+                    <Page style={{display: `${type === 'page' ? 'block' : 'none'}`}}></Page>
                     {/*sheet5*/}
                     <Sheet5 style={{display: `${type === 'dome5' ? 'block' : 'none'}`}}/>
                 </Box>

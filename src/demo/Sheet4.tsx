@@ -11,8 +11,6 @@ export class Sheet4 extends React.Component<{style: {}}>{
             div.id = "univer-demo";
             div.setAttribute("data-univerid", univerid)
             div.classList.add("univer-demo");
-            div.style.width = '100%';
-            div.style.height = '100%';
             div.style.overflow='hidden'
             let demo = "DEMO4"
             setTimeout(() => {
@@ -45,6 +43,6 @@ export class Sheet4 extends React.Component<{style: {}}>{
     }
 
     render() {
-        return <div ref={this.refContainer} style={this.props.style}></div>;
+        return <div ref={this.refContainer} style={{...this.props.style, width: '930px', height: '80%', margin: '0 auto'}}></div>;
     }
 }

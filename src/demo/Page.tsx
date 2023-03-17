@@ -1,6 +1,6 @@
 import React, {createRef} from "react";
 
-export class Affine extends React.Component<{style: {}}> {
+export class Page extends React.Component<{style: {}}> {
 
     iframeRef = createRef<HTMLIFrameElement>()
 
