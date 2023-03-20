@@ -6,7 +6,7 @@ export class Page extends React.Component<{style: {}}> {
 
     componentDidMount() {
         if (this.iframeRef.current) {
-            this.iframeRef.current.src = 'http://luckysheet.lashuju.com/affine/?init=preset'
+            this.iframeRef.current.src = 'http://luckysheet.lashuju.com/page/?init=preset'
         }
     }
 
