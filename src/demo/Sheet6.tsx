@@ -1,7 +1,7 @@
 import React, {createRef} from "react";
 import {makeid, initUniverNew} from './Common.js';
 
-export class Sheet5 extends React.Component<{style: {}}>{
+export class Sheet6 extends React.Component<{style: {}}>{
     refContainer = createRef<HTMLDivElement>()
 
     componentDidMount() {
@@ -12,7 +12,7 @@ export class Sheet5 extends React.Component<{style: {}}>{
             div.setAttribute("data-univerid", univerid)
             div.classList.add("univer-demo");
             div.style.overflow='hidden'
-            let demo = "DEMO5"
+            let demo = "DEMO6"
             setTimeout(() => {
                 const container = div;
                 container && container.addEventListener('wheel', (e) => {

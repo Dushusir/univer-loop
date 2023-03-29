@@ -30,11 +30,15 @@ import {Sheet1} from "../../demo/Sheet1";
 import {Sheet2} from "../../demo/Sheet2";
 import {Sheet3} from "../../demo/Sheet3";
 import {Sheet4} from "../../demo/Sheet4";
-import {Sheet5} from "../../demo/Sheet5";
+import {LKSheet1} from "../../demo/LKSheet1";
 // import Logo from '../../assets/img/Picture1.png'
 import {Doc} from "../../demo/Doc";
 import {Slide} from "../../demo/Slide";
 import {Page} from "../../demo/Page";
+import { Sheet6 } from '../../demo/Sheet6';
+import { Sheet5 } from '../../demo/Sheet5';
+import { Sheet8 } from '../../demo/Sheet8';
+import { Sheet7 } from '../../demo/Sheet7';
 
 function Copyright(props: any) {
     return (
@@ -170,13 +174,57 @@ function DashboardContent() {
                             icon: 'icon6',
                             children: [],
                         },
+                        // {
+                        //     type: 'node',
+                        //     id: `${++id}`,
+                        //     text: 'Retrospective Retreat',
+                        //     onClick: () => {
+                        //         setType('dome4');
+                        //         setTitle('Retrospective Retreat');
+                        //     },
+                        //     icon: 'icon6',
+                        //     children: [],
+                        // },
                         {
                             type: 'node',
                             id: `${++id}`,
-                            text: 'Retrospective Retreat',
+                            text: 'Retrospective Retreat5',
                             onClick: () => {
-                                setType('dome4');
-                                setTitle('Retrospective Retreat');
+                                setType('dome5');
+                                setTitle('Retrospective Retreat5');
+                            },
+                            icon: 'icon6',
+                            children: [],
+                        },
+                        // {
+                        //     type: 'node',
+                        //     id: `${++id}`,
+                        //     text: 'Retrospective Retreat6',
+                        //     onClick: () => {
+                        //         setType('dome6');
+                        //         setTitle('Retrospective Retreat6');
+                        //     },
+                        //     icon: 'icon6',
+                        //     children: [],
+                        // },
+                        {
+                            type: 'node',
+                            id: `${++id}`,
+                            text: 'Retrospective Retreat7',
+                            onClick: () => {
+                                setType('dome7');
+                                setTitle('Retrospective Retreat7');
+                            },
+                            icon: 'icon6',
+                            children: [],
+                        },
+                        {
+                            type: 'node',
+                            id: `${++id}`,
+                            text: 'Retrospective Retreat8',
+                            onClick: () => {
+                                setType('dome8');
+                                setTitle('Retrospective Retreat8');
                             },
                             icon: 'icon6',
                             children: [],
@@ -193,7 +241,7 @@ function DashboardContent() {
                     children: [
                         {
                             onClick: () => {
-                                setType('dome5');
+                                setType('lkSheet1');
                                 setTitle('Mood Board');
                             },
                             type: 'node',
@@ -366,6 +414,14 @@ function DashboardContent() {
                     <Sheet3 style={{display: `${type === 'dome3' ? 'block' : 'none'}`}}/>
                     {/*sheet4*/}
                     <Sheet4 style={{display: `${type === 'dome4' ? 'block' : 'none'}`}}/>
+                    {/*sheet5*/}
+                    <Sheet5 style={{display: `${type === 'dome5' ? 'block' : 'none'}`}}/>
+                    {/*sheet6*/}
+                    <Sheet6 style={{display: `${type === 'dome6' ? 'block' : 'none'}`}}/>
+                    {/*sheet7*/}
+                    <Sheet7 style={{display: `${type === 'dome7' ? 'block' : 'none'}`}}/>
+                    {/*sheet8*/}
+                    <Sheet8 style={{display: `${type === 'dome8' ? 'block' : 'none'}`}}/>
                     {/*doc*/}
                     <Doc style={{display: `${type === 'doc' ? 'block' : 'none'}`}}/>
                     {/*slide*/}
@@ -373,7 +429,7 @@ function DashboardContent() {
                     {/*affine*/}
                     <Page style={{display: `${type === 'page' ? 'block' : 'none'}`}}></Page>
                     {/*sheet5*/}
-                    <Sheet5 style={{display: `${type === 'dome5' ? 'block' : 'none'}`}}/>
+                    <LKSheet1 style={{display: `${type === 'lkSheet1' ? 'block' : 'none'}`}}/>
                 </Box>
             </Box>
         </ThemeProvider>
