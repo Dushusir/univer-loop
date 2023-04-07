@@ -36,7 +36,7 @@ export class Doc extends React.Component<{style: {}}> {
                     toolbar: false,
                     refs: container
                 })
-            }, 800);
+            }, 100);
         }
     }
 

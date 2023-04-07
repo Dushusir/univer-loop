@@ -179,12 +179,15 @@ export function initDocNew(setting) {
         uiDocsConfig
     })
 
-    window.addEventListener('resize', () => {
-        setTimeout(() => {
-            console.log(0)
-            univerdoc._context.getPluginManager().getRequirePluginByName('document').calculatePagePosition();
-        }, 2000);
-    });
+    window.addEventListener('resize', (event) => {
+        console.log('resize doc')
+            try {
+                univerdoc._context.getPluginManager().getRequirePluginByName('document').getDocsView().scrollToCenter();
+            } catch (error) {
+                console.info(error)
+            }
+        
+      }, true);
 }
 
 export function initSlideNew(setting) {
@@ -222,6 +225,9 @@ export function initSlideNew(setting) {
 }
 
 export function initUniverNew(content, setting) {
+
+    refresh()
+
     switch (content) {
         case 'sheet':
             initSheetNew(setting)
@@ -248,3 +254,27 @@ export function initUniverNew(content, setting) {
             break;
     }
 }
+
+
+function refresh(params) {
+    const rootEle = document.querySelector('.affine-default-viewport');
+    if (!rootEle) return;
+  
+    var config = {
+      childList: true,
+      subtree: true,
+    };
+    var time = null;
+    new MutationObserver(() => {
+      if (time) {
+        clearTimeout(time);
+        time = null;
+      }
+  
+      time = setTimeout(() => {
+  
+        window.dispatchEvent(new Event('resize', {}));
+      }, 500);
+    }).observe(rootEle, config);
+  }
+  
